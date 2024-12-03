@@ -868,6 +868,7 @@ class Assistant(BaseModel):
                 # Get references from the knowledge base
                 filters = kwargs.get("filters", None)
                 user_prompt_references = self.get_references_from_knowledge_base(query=message, filters=filters)
+                del kwargs["filters"]
                 reference_timer.stop()
                 references = References(
                     query=message, references=user_prompt_references, time=round(reference_timer.elapsed, 4)
@@ -1071,6 +1072,7 @@ class Assistant(BaseModel):
 
                 filters = kwargs.get("filters", None)
                 user_prompt_references = self.get_references_from_knowledge_base(query=message, filters=filters)
+                del kwargs["filters"]
                 reference_timer.stop()
                 references = References(
                     query=message, references=user_prompt_references, time=round(reference_timer.elapsed, 4)

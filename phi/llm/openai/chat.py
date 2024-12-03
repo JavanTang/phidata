@@ -219,7 +219,7 @@ class OpenAIChat(LLM):
             model=self.model,
             messages=[m.to_dict() for m in messages],  # type: ignore
             stream=True,
-            stream_options={"include_usage": True},
+            # stream_options={"include_usage": True},
             **self.api_kwargs,
         )  # type: ignore
 
